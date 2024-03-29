@@ -10,8 +10,6 @@ func _ready():
 func _process(delta):
 	var rightPaddle = $PaddleRight
 	var leftPaddle = $PaddleLeft
-	print (-get_viewport_rect().size.y/2)
-	print (get_viewport_rect().size.y/2)
 	if Input.is_action_pressed("left_paddle_up"):
 		leftPaddle.position+=Vector2(0,-moveDelta)
 	if Input.is_action_pressed("left_paddle_down"):
@@ -20,7 +18,6 @@ func _process(delta):
 		rightPaddle.position+=Vector2(0,-moveDelta)
 	if Input.is_action_pressed("right_paddle_down"):
 		rightPaddle.position+=Vector2(0,moveDelta)
-	print (rightPaddle.position.y)
 	rightPaddle.position.y = clamp(rightPaddle.position.y,-get_viewport_rect().size.y/2,get_viewport_rect().size.y/2)
 	leftPaddle.position.y = clamp(leftPaddle.position.y,-get_viewport_rect().size.y/2,get_viewport_rect().size.y/2)
 
