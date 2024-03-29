@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8pairyw16h5q"]
+
+[ext_resource type="Script" path="res://movePaddles.gd" id="1_8xjs4"]
+[ext_resource type="Texture2D" uid="uid://dkry28exgeyyj" path="res://paddle1.png" id="1_vejkr"]
+[ext_resource type="Texture2D" uid="uid://c6renjm8wq2mj" path="res://paddle2.png" id="2_mna1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqlgt"]
+size = Vector2(49.6398, 215.476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3xuk"]
+size = Vector2(46.8343, 214.498)
+
+[node name="Paddles" type="Node2D"]
+scale = Vector2(0.704614, 0.745928)
+script = ExtResource("1_8xjs4")
+
+[node name="PaddleLeft" type="Area2D" parent="." groups=["paddles"]]
+
+[node name="SpriteLeft" type="Sprite2D" parent="PaddleLeft"]
+position = Vector2(63.8647, 428.996)
+scale = Vector2(1, 1)
+texture = ExtResource("1_vejkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaddleLeft"]
+position = Vector2(65.9772, 428.507)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eqlgt")
+
+[node name="PaddleRight" type="Area2D" parent="." groups=["paddles"]]
+
+[node name="SpriteRight" type="Sprite2D" parent="PaddleRight"]
+position = Vector2(1563.98, 419.612)
+scale = Vector2(1, 1)
+texture = ExtResource("2_mna1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaddleRight"]
+position = Vector2(1566.11, 420.952)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_h3xuk")
