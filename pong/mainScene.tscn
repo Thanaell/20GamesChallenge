@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djdee7n034e1s"]
+[gd_scene load_steps=7 format=3 uid="uid://djdee7n034e1s"]
 
 [ext_resource type="PackedScene" uid="uid://b8pairyw16h5q" path="res://paddles.tscn" id="1_74h31"]
 [ext_resource type="PackedScene" uid="uid://bgjpvtf5mh0es" path="res://background.tscn" id="1_doiuw"]
 [ext_resource type="PackedScene" uid="uid://tajmdagtipnl" path="res://ball.tscn" id="2_idtys"]
 [ext_resource type="PackedScene" uid="uid://bfbcf825v0e6u" path="res://main_music_player.tscn" id="4_twmft"]
 [ext_resource type="PackedScene" uid="uid://c3dpehik1fe3o" path="res://hit_sound_player.tscn" id="5_k4x77"]
+[ext_resource type="PackedScene" uid="uid://cjdrwk1uerfjy" path="res://ui.tscn" id="6_a3vsm"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,4 +19,13 @@
 
 [node name="HitSoundPlayer" parent="." instance=ExtResource("5_k4x77")]
 
+[node name="ScoreLabel" parent="." instance=ExtResource("6_a3vsm")]
+offset_left = 558.0
+offset_top = 5.0
+offset_right = 706.0
+offset_bottom = 59.0
+text = "Hello"
+uppercase = true
+
 [connection signal="paddleHit" from="Ball" to="HitSoundPlayer" method="playSound"]
+[connection signal="playerScored" from="Ball" to="ScoreLabel" method="update_Score"]

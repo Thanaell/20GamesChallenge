@@ -1,6 +1,7 @@
 extends Area2D
 
 signal paddleHit
+signal playerScored(isLeftScore:bool)
 var rotation_speed = PI
 var speed = 500
 var init_speed=400
@@ -44,4 +45,8 @@ func _on_area_entered(area):
 		bounce(false)
 		paddleHit.emit()
 	else:
+		if(position.x<get_viewport_rect().size.x/2):
+			emit_signal("playerScored", false)
+		else:
+			emit_signal("playerScored", true)	
 		_reset_position()
