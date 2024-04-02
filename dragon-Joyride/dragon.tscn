@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ubilv0curjx"]
+
+[ext_resource type="Texture2D" path="res://Sprite-0004-Sheet.png" id="1_cdj5x"]
+[ext_resource type="Texture2D" uid="uid://bquvpfv5ff838" path="res://dragon-joyride1.png" id="2_l28yl"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(101, 94)
+scale = Vector2(2.86508, 2.86508)
+texture = ExtResource("1_cdj5x")
+region_enabled = true
+region_rect = Rect2(0, 0, 63, 64)
+
+[node name="Dragon-joyride1" type="Sprite2D" parent="."]
+position = Vector2(86.9086, 92.4931)
+scale = Vector2(0.227913, 0.227913)
+texture = ExtResource("2_l28yl")
