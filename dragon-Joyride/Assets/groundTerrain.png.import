@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wn7v0db5o8cp"
-path="res://.godot/imported/dragon-joyride2.png-23bb45614cca735277741c7a27120eb3.ctex"
+uid="uid://cobmo510ggirp"
+path="res://.godot/imported/groundTerrain.png-251c203e612fd0c9ffa1edfd77fbf8df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dragon-joyride2.png"
-dest_files=["res://.godot/imported/dragon-joyride2.png-23bb45614cca735277741c7a27120eb3.ctex"]
+source_file="res://Assets/groundTerrain.png"
+dest_files=["res://.godot/imported/groundTerrain.png-251c203e612fd0c9ffa1edfd77fbf8df.ctex"]
 
 [params]
 
