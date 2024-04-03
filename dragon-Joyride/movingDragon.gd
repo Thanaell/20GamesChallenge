@@ -10,6 +10,9 @@ const downSprite = preload("res://Assets/dragon-joyride2.png")
 func _ready():
 	pass # Replace with function body.
 
+func _handle_collision(area:Area2D):
+	print("collision detected")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
