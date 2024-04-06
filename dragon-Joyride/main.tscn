@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://3w60lh6rp1ma"]
+[gd_scene load_steps=5 format=3 uid="uid://3w60lh6rp1ma"]
 
 [ext_resource type="PackedScene" uid="uid://bxmkubu2sd6nq" path="res://background.tscn" id="1_u774l"]
 [ext_resource type="PackedScene" uid="uid://ck43sddbemcxf" path="res://dragon.tscn" id="1_xtxre"]
 [ext_resource type="PackedScene" uid="uid://tpljimoicnm3" path="res://obstacle_spawn.tscn" id="3_yi8rr"]
-[ext_resource type="PackedScene" uid="uid://chopej4vdomgw" path="res://bee.tscn" id="4_pfwea"]
-[ext_resource type="PackedScene" uid="uid://bvbw1tg8ex3bv" path="res://spike.tscn" id="5_e7bth"]
+[ext_resource type="PackedScene" uid="uid://btvcfp03jircc" path="res://score.tscn" id="4_vi1xr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,8 +15,8 @@ scale = Vector2(0.219933, 0.219933)
 
 [node name="ObstacleSpawn" parent="." instance=ExtResource("3_yi8rr")]
 
-[node name="Area2D" parent="." instance=ExtResource("4_pfwea")]
-position = Vector2(779, 230)
-
-[node name="Area2D2" parent="." instance=ExtResource("5_e7bth")]
-position = Vector2(969, 560)
+[node name="Label" parent="." instance=ExtResource("4_vi1xr")]
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 81.0
+offset_bottom = 48.0
