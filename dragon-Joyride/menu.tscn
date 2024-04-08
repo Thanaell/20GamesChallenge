@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cswlcygdj80w7"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_i8mrh"]
+
+[sub_resource type="Gradient" id="Gradient_iemk4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ci3k"]
+gradient = SubResource("Gradient_iemk4")
+fill_to = Vector2(1, 0.779817)
+
+[node name="NinePatchRect" type="NinePatchRect"]
+offset_right = 1150.0
+offset_bottom = 646.0
+texture = SubResource("GradientTexture2D_6ci3k")
+script = ExtResource("1_i8mrh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 255.0
+offset_right = 642.0
+offset_bottom = 361.0
+text = "START"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 201.0
+offset_right = 607.0
+offset_bottom = 224.0
+text = "HIGHSCORE : "
+
+[connection signal="pressed" from="Button" to="." method="on_button_pressed"]

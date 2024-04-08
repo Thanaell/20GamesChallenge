@@ -6,8 +6,7 @@ func onTimerExpired():
 	var spike = preload("res://spike.tscn")
 
 	var rng = RandomNumberGenerator.new()
-	var value = randi_range(0,5)
-	
+	var value = rng.randi_range(0,5)
 	
 	match value:
 		1:

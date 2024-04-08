@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://3w60lh6rp1ma"]
+[gd_scene load_steps=6 format=3 uid="uid://3w60lh6rp1ma"]
 
+[ext_resource type="Script" path="res://game_controller.gd" id="1_qs1ti"]
 [ext_resource type="PackedScene" uid="uid://bxmkubu2sd6nq" path="res://background.tscn" id="1_u774l"]
 [ext_resource type="PackedScene" uid="uid://ck43sddbemcxf" path="res://dragon.tscn" id="1_xtxre"]
 [ext_resource type="PackedScene" uid="uid://tpljimoicnm3" path="res://obstacle_spawn.tscn" id="3_yi8rr"]
 [ext_resource type="PackedScene" uid="uid://btvcfp03jircc" path="res://score.tscn" id="4_vi1xr"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qs1ti")
 
 [node name="Background" parent="." instance=ExtResource("1_u774l")]
 position = Vector2(62, 4)
@@ -20,3 +22,5 @@ offset_left = 41.0
 offset_top = 25.0
 offset_right = 81.0
 offset_bottom = 48.0
+
+[connection signal="dragon_hit" from="Dragon" to="." method="on_dragon_hit"]
