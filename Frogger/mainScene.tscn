@@ -9,50 +9,57 @@
 script = ExtResource("1_k4pbx")
 
 [node name="Level" type="Node2D" parent="."]
-position = Vector2(300, 20)
 
 [node name="LilypadsLane" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 43)
+position = Vector2(0, 63)
 
 [node name="River5" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 86)
+position = Vector2(0, 106)
 
 [node name="River4" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 129)
+position = Vector2(0, 149)
 
 [node name="River3" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 172)
+position = Vector2(0, 192)
 
 [node name="River2" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 215)
+position = Vector2(0, 235)
+speed = -30.0
+pattern = Array[int]([0, 0, 5, 5, 1, 1, 5, 5])
 
 [node name="River1" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 258)
+position = Vector2(0, 278)
 speed = 20.0
 pattern = Array[int]([0, 0, 0, 5, 5, 5])
 
 [node name="SafeLane2" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 301)
+position = Vector2(0, 321)
+pattern = Array[int]([4])
 
 [node name="Road5" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 344)
+position = Vector2(0, 364)
 
 [node name="Road4" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 387)
+position = Vector2(0, 407)
 
 [node name="Road3" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 430)
+position = Vector2(0, 450)
 
 [node name="Road2" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 473)
+position = Vector2(0, 493)
 
 [node name="Road1" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 516)
+position = Vector2(0, 536)
 
 [node name="SafeLane1" parent="Level" instance=ExtResource("1_ivboo")]
-position = Vector2(0, 559)
+position = Vector2(0, 579)
+pattern = Array[int]([4])
 
 [node name="Frog" parent="." instance=ExtResource("3_w2bct")]
+position = Vector2(300, 579)
 
 [node name="InputController" type="Node2D" parent="."]
 script = ExtResource("1_vgh0d")
+
+[connection signal="move_down" from="InputController" to="." method="on_move_down_input"]
+[connection signal="move_up" from="InputController" to="." method="on_move_up_input"]

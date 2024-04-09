@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://cvtso6omplqki"]
+[gd_scene load_steps=4 format=3 uid="uid://cvtso6omplqki"]
 
-[node name="Frog" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://e8ji07u57a1g" path="res://blocks/blocksTextures/frog.png" id="1_aun1j"]
+[ext_resource type="Script" path="res://frog.gd" id="1_lgny8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3berx"]
+
+[node name="Frog" type="Area2D"]
+script = ExtResource("1_lgny8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3berx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aun1j")
