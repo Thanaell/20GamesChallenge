@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1wk5jhjcro64"]
 
-[ext_resource type="Script" path="res://blocks/blockScripts/turtle.gd" id="1_f5w7p"]
+[ext_resource type="Script" path="res://blocks/blockScripts/Turtle.gd" id="1_f5w7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
 

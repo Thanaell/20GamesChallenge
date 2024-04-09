@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drbtg7os6pu34"]
 
-[ext_resource type="Script" path="res://blocks/blockScripts/lilypad.gd" id="1_ggyeq"]
+[ext_resource type="Script" path="res://blocks/blockScripts/Lilypad.gd" id="1_ggyeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
 

@@ -1,13 +1,18 @@
 class_name Lane extends Node2D
 
 @export var speed = 0.0
-@export var blockPaths =[]
+@export var pattern: Array[Block.BlockType] = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for block_type: Block.BlockType in pattern:
+		var new_block: Node = BlockFactory.create_block(block_type)
+		
+		# Move other blocks to make room
+		for existing_block: Node in get_children():
+			existing_block.position.x += Block.blockSize
+		
+		add_child(new_block)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	for existing_block: Node in get_children():
+		existing_block.position.x += speed * delta
