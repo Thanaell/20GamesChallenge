@@ -1,10 +1,15 @@
-extends Node2D
+class_name InputController extends Node2D
 
-signal move_up
-signal move_down
+enum MoveDirection { UP, DOWN, LEFT, RIGHT }
+
+signal move(direction: MoveDirection)
 
 func _process(delta):
 	if Input.is_action_pressed("ui_up"):
-		move_up.emit()
+		move.emit(MoveDirection.UP)
 	if Input.is_action_pressed("ui_down"):
-		move_down.emit()
+		move.emit(MoveDirection.DOWN)
+	if Input.is_action_pressed("ui_left"):
+		move.emit(MoveDirection.LEFT)
+	if Input.is_action_pressed("ui_right"):
+		move.emit(MoveDirection.RIGHT)

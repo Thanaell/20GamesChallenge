@@ -57,9 +57,9 @@ pattern = Array[int]([4])
 
 [node name="Frog" parent="." instance=ExtResource("3_w2bct")]
 position = Vector2(300, 579)
+rotation = -1.5708
 
 [node name="InputController" type="Node2D" parent="."]
 script = ExtResource("1_vgh0d")
 
-[connection signal="move_down" from="InputController" to="." method="on_move_down_input"]
-[connection signal="move_up" from="InputController" to="." method="on_move_up_input"]
+[connection signal="move" from="InputController" to="." method="on_move_input"]
