@@ -8,6 +8,7 @@ var x_target: float = 0.0
 var y_target: float = 0.0
 var lerp_progression: float = 0.0
 
+var speed : int = 0
 
 func _process(delta):
 	if is_moving_vertical || is_moving_horizontal:
@@ -17,6 +18,8 @@ func _process(delta):
 			is_moving_vertical = false
 			is_moving_horizontal = false
 			$AnimatedSprite2D.play("default")
+	else:
+		position.x+=delta*speed
 
 
 func vertical_lerp_to_position(y: float):

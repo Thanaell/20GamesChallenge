@@ -31,7 +31,7 @@ func switch_sprite():
 
 func set_deadliness():
 	match blockType:
-		BlockType.CROCODILE || BlockType.CAR || BlockType.WATER:
+		BlockType.CROCODILE, BlockType.CAR, BlockType.WATER:
 			isKill=true
 		_:
 			isKill=false
