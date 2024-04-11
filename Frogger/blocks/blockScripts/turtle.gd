@@ -3,10 +3,19 @@ class_name Turtle extends Block
 var time_up : float = 5.0
 var time_down : float = 5.0
 
+var hasFrog = false;
+signal dived_with_frog
 var isUp = true
 
-func _ready():
+func removeFrog():
+	hasFrog=false
+
+func _ready():	
 	blockType=BlockType.TURTLE
+	
+	#connect to broadcast handler
+	dived_with_frog.connect(BroadcastEventsHandler.on_turtle_dive_with_frog)
+	
 	$AnimatedSprite2D.play("up")
 	
 	var rng = RandomNumberGenerator.new()
@@ -24,6 +33,8 @@ func on_anim_finished():
 		isKill=false
 		$AnimatedSprite2D.play("up")
 	else :
+		if (hasFrog):
+			dived_with_frog.emit()
 		isKill=true
 		$AnimatedSprite2D.play("down")
 

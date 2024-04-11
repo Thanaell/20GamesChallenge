@@ -8,8 +8,9 @@ var lane_speeds : Array[float] = []
 
 
 func _ready():
-	for lane in $Level.get_children():
-		
+	#Connecting death from diving turtle through broadcast handler
+	BroadcastEventsHandler.frog_death.connect(on_frog_death)
+	for lane in $Level.get_children():	
 		lane_y_coordinates.append(lane.position.y)
 		lane_speeds.append(lane.speed)
 	lane_y_coordinates.reverse()
@@ -39,6 +40,8 @@ func on_frog_death():
 	$Frog.reset($FrogSpawnPosition.position)
 		
 func on_frog_collide(area : Area2D):
+	if (area.blockType == Block.BlockType.TURTLE):
+		area.hasFrog=true
 	if (area.blockType==Block.BlockType.LILYPAD):
 		$Frog.reset($FrogSpawnPosition.position)
 		frog_current_lane = 0
