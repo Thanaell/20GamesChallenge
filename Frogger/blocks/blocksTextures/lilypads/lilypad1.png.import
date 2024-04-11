@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0y27jmdn0wsf"
-path="res://.godot/imported/turtle.png-c77d9f525d7aaca1c628b66c8db7c029.ctex"
+uid="uid://4a08bjxm7ro6"
+path="res://.godot/imported/lilypad1.png-499a77019e81ec8b7bdc978f51d94249.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blocks/blocksTextures/turtle.png"
-dest_files=["res://.godot/imported/turtle.png-c77d9f525d7aaca1c628b66c8db7c029.ctex"]
+source_file="res://blocks/blocksTextures/lilypads/lilypad1.png"
+dest_files=["res://.godot/imported/lilypad1.png-499a77019e81ec8b7bdc978f51d94249.ctex"]
 
 [params]
 

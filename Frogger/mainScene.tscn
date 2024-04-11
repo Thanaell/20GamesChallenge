@@ -21,7 +21,7 @@ pattern = Array[int]([5, 5, 7, 5, 5, 7, 5, 5, 7, 5, 5, 7, 5, 5, 7])
 [node name="River5" parent="Level" instance=ExtResource("1_ivboo")]
 position = Vector2(0, 106)
 speed = -20.0
-pattern = Array[int]([0, 5, 5])
+pattern = Array[int]([0, 5, 5, 3, 5, 5])
 
 [node name="River4" parent="Level" instance=ExtResource("1_ivboo")]
 position = Vector2(0, 149)
@@ -41,7 +41,7 @@ pattern = Array[int]([0, 1, 5, 5, 0, 0, 0, 5, 5, 0, 0, 5, 5])
 [node name="River1" parent="Level" instance=ExtResource("1_ivboo")]
 position = Vector2(0, 278)
 speed = 20.0
-pattern = Array[int]([0, 0, 0, 5, 5, 5])
+pattern = Array[int]([0, 0, 0, 5, 3, 5])
 
 [node name="SafeLane2" parent="Level" instance=ExtResource("1_ivboo")]
 position = Vector2(0, 321)

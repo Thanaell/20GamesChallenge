@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://drbtg7os6pu34"]
 
 [ext_resource type="Script" path="res://blocks/blockScripts/Lilypad.gd" id="1_ggyeq"]
-[ext_resource type="Texture2D" uid="uid://4a08bjxm7ro6" path="res://blocks/blocksTextures/lilypad1.png" id="2_cpeb5"]
-[ext_resource type="Texture2D" uid="uid://d026qowiqa0o4" path="res://blocks/blocksTextures/lilypad2.png" id="3_b62fw"]
+[ext_resource type="Texture2D" uid="uid://4a08bjxm7ro6" path="res://blocks/blocksTextures/lilypads/lilypad1.png" id="2_aifyl"]
+[ext_resource type="Texture2D" uid="uid://d026qowiqa0o4" path="res://blocks/blocksTextures/lilypads/lilypad2.png" id="3_pkn0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
 
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cpeb5")
+"texture": ExtResource("2_aifyl")
 }],
 "loop": true,
 "name": &"default",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b62fw")
+"texture": ExtResource("3_pkn0y")
 }],
 "loop": true,
 "name": &"win_lilypad",
