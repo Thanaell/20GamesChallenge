@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 20.0,
 "texture": ExtResource("4_1aa7p")
 }],
 "loop": true,
@@ -36,3 +36,4 @@ shape = SubResource("RectangleShape2D_3berx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_mso1x")
+animation = &"jump"

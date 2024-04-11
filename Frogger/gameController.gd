@@ -41,4 +41,7 @@ func on_frog_collide(area : Area2D):
 		$Frog.reset($FrogSpawnPosition.position)
 		
 	else:
-		$Frog.speed=lane_speeds[frog_current_lane]
+		if (area.blockType != Block.BlockType.ROAD):
+			$Frog.speed=lane_speeds[frog_current_lane]
+		else :
+			$Frog.speed = 0

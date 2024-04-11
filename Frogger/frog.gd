@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var lerp_speed: float = 10.0
+@export var lerp_speed: float = 5.0
 
 var is_moving_vertical: bool = false
 var is_moving_horizontal: bool = false
