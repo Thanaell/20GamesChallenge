@@ -1,16 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvtso6omplqki"]
+[gd_scene load_steps=6 format=3 uid="uid://cvtso6omplqki"]
 
-[ext_resource type="Texture2D" uid="uid://e8ji07u57a1g" path="res://blocks/blocksTextures/frog.png" id="1_aun1j"]
 [ext_resource type="Script" path="res://frog.gd" id="1_lgny8"]
+[ext_resource type="Texture2D" uid="uid://br640x3slnv3a" path="res://frogSprites/frog1.png" id="3_r08gs"]
+[ext_resource type="Texture2D" uid="uid://bw2u7yc2ti0e6" path="res://frogSprites/frog2.png" id="4_1aa7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3berx"]
+size = Vector2(28, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mso1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r08gs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1aa7p")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
 
 [node name="Frog" type="Area2D"]
 script = ExtResource("1_lgny8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_3berx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("1_aun1j")
+sprite_frames = SubResource("SpriteFrames_mso1x")

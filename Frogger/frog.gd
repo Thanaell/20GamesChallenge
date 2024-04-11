@@ -16,6 +16,7 @@ func _process(delta):
 		if lerp_progression >= 1.0:
 			is_moving_vertical = false
 			is_moving_horizontal = false
+			$AnimatedSprite2D.play("default")
 
 
 func vertical_lerp_to_position(y: float):
@@ -23,6 +24,7 @@ func vertical_lerp_to_position(y: float):
 	x_target = position.x
 	y_target = y
 	lerp_progression = 0.0
+	$AnimatedSprite2D.play("jump")
 	
 	# Turning the sprite in the correct direction
 	if position.y > y:
@@ -38,6 +40,7 @@ func horizontal_lerp_to_position(x: float):
 	x_target = x
 	y_target = position.y
 	lerp_progression = 0.0
+	$AnimatedSprite2D.play("jump")
 	
 	# Turning the sprite in the correct direction
 	if position.x > x:
