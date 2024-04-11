@@ -10,7 +10,7 @@ static func create_block(type : Block.BlockType) -> Node :
 		Block.BlockType.TURTLE:
 			return packed_turtle_scene.instantiate()
 		Block.BlockType.LILYPAD:
-			return packed_turtle_scene.instantiate()
+			return packed_lilypad_scene.instantiate()
 		_:
 			var block_scene: Node = packed_block_scene.instantiate()
 			block_scene.blockType = type

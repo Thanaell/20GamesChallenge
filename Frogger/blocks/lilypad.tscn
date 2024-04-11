@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://drbtg7os6pu34"]
+[gd_scene load_steps=4 format=3 uid="uid://drbtg7os6pu34"]
 
 [ext_resource type="Script" path="res://blocks/blockScripts/Lilypad.gd" id="1_ggyeq"]
+[ext_resource type="Texture2D" uid="uid://db5j1y0cjafld" path="res://blocks/blocksTextures/lilypad.png" id="2_hcyro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
 
@@ -12,3 +13,4 @@ isKill = true
 shape = SubResource("RectangleShape2D_l1kup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hcyro")

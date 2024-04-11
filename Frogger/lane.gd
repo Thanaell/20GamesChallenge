@@ -18,7 +18,7 @@ func _ready():
 			# Rotating the sprite depending on the speed
 			if speed < 0:
 				print(new_block.rotation)
-				new_block.rotation = PI
+				new_block.scale.x = -1
 			
 			# Move other blocks to make room
 			for existing_block: Node in existing_blocks:

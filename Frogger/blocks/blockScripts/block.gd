@@ -2,7 +2,7 @@ class_name Block extends Area2D
 
 enum BlockType {LOG, CROCODILE, CAR, TURTLE, SAFE, WATER, ROAD, LILYPAD}
 
-static var blockSize: int = 20
+static var blockSize: int = 40
 
 @export var isKill: bool = false
 var blockType: BlockType

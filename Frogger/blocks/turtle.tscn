@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1wk5jhjcro64"]
+[gd_scene load_steps=4 format=3 uid="uid://d1wk5jhjcro64"]
 
 [ext_resource type="Script" path="res://blocks/blockScripts/Turtle.gd" id="1_f5w7p"]
+[ext_resource type="Texture2D" uid="uid://c0y27jmdn0wsf" path="res://blocks/blocksTextures/turtle.png" id="2_ij8ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
 
@@ -11,3 +12,4 @@ script = ExtResource("1_f5w7p")
 shape = SubResource("RectangleShape2D_l1kup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ij8ih")
