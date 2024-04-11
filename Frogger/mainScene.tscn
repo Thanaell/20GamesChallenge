@@ -83,5 +83,8 @@ rotation = -1.5708
 [node name="InputController" type="Node2D" parent="."]
 script = ExtResource("1_vgh0d")
 
+[node name="FrogSpawnPosition" type="Node2D" parent="."]
+position = Vector2(298.93, 581.17)
+
 [connection signal="area_entered" from="Frog" to="." method="on_frog_collide"]
 [connection signal="move" from="InputController" to="." method="on_move_input"]

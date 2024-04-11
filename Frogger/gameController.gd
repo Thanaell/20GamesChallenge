@@ -37,6 +37,8 @@ func on_move_input(direction: InputController.MoveDirection):
 func on_frog_collide(area : Area2D):
 	if (area.isKill):
 		#TODO : handle death
-		print ("frog died")
+		frog_current_lane = 0
+		$Frog.reset($FrogSpawnPosition.position)
+		
 	else:
 		$Frog.speed=lane_speeds[frog_current_lane]
