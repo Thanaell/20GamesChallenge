@@ -87,4 +87,5 @@ script = ExtResource("1_vgh0d")
 position = Vector2(298.93, 581.17)
 
 [connection signal="area_entered" from="Frog" to="." method="on_frog_collide"]
+[connection signal="outOfBounds" from="Frog" to="." method="on_frog_death"]
 [connection signal="move" from="InputController" to="." method="on_move_input"]

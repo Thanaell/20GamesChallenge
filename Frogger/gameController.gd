@@ -34,11 +34,18 @@ func on_move_input(direction: InputController.MoveDirection):
 			var target_x_coordinate = $Frog.position.x + Block.blockSize
 			$Frog.horizontal_lerp_to_position(target_x_coordinate)
 
+func on_frog_death():
+	frog_current_lane = 0
+	$Frog.reset($FrogSpawnPosition.position)
+		
 func on_frog_collide(area : Area2D):
-	if (area.isKill):
-		#TODO : handle death
-		frog_current_lane = 0
+	if (area.blockType==Block.BlockType.LILYPAD):
 		$Frog.reset($FrogSpawnPosition.position)
+		frog_current_lane = 0
+		
+	if (area.isKill):
+		#TODO : handle death (score)
+		on_frog_death()
 		
 	else:
 		if (area.blockType != Block.BlockType.ROAD):

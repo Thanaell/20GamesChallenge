@@ -1,9 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://drbtg7os6pu34"]
+[gd_scene load_steps=6 format=3 uid="uid://drbtg7os6pu34"]
 
 [ext_resource type="Script" path="res://blocks/blockScripts/Lilypad.gd" id="1_ggyeq"]
-[ext_resource type="Texture2D" uid="uid://db5j1y0cjafld" path="res://blocks/blocksTextures/lilypad.png" id="2_hcyro"]
+[ext_resource type="Texture2D" uid="uid://4a08bjxm7ro6" path="res://blocks/blocksTextures/lilypad1.png" id="2_cpeb5"]
+[ext_resource type="Texture2D" uid="uid://d026qowiqa0o4" path="res://blocks/blocksTextures/lilypad2.png" id="3_b62fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1kup"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qfsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cpeb5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b62fw")
+}],
+"loop": true,
+"name": &"win_lilypad",
+"speed": 5.0
+}]
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_ggyeq")
@@ -11,5 +31,8 @@ script = ExtResource("1_ggyeq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l1kup")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hcyro")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8qfsa")
+animation = &"win_lilypad"
+
+[connection signal="area_entered" from="." to="." method="fill"]
