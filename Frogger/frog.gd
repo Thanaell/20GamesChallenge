@@ -26,14 +26,13 @@ func _process(delta):
 		position.x+=delta*speed
 
 func reset(resetPosition : Vector2):
-	is_moving_horizontal=false
-	is_moving_horizontal=false
+	is_moving_vertical = false
+	is_moving_horizontal = false
 	$AnimatedSprite2D.play("default")
-	rotation=-PI/2
+	rotation = -PI/2
 	position = resetPosition
-	
-	
-	
+
+
 func vertical_lerp_to_position(y: float):
 	is_moving_vertical = true
 	x_target = position.x

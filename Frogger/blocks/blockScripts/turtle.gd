@@ -10,7 +10,7 @@ var isUp = true
 func removeFrog():
 	hasFrog=false
 
-func _ready():	
+func _ready():
 	blockType=BlockType.TURTLE
 	
 	#connect to broadcast handler
@@ -30,12 +30,13 @@ func go_up_water():
 
 func on_anim_finished():
 	if (isUp):
-		isKill=false
+		isKill = false
 		$AnimatedSprite2D.play("up")
 	else :
 		if (hasFrog):
+			removeFrog()
 			dived_with_frog.emit()
-		isKill=true
+		isKill = true
 		$AnimatedSprite2D.play("down")
 
 func handleTimer():

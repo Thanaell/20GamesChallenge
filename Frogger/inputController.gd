@@ -4,7 +4,7 @@ enum MoveDirection { UP, DOWN, LEFT, RIGHT }
 
 signal move(direction: MoveDirection)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_up"):
 		move.emit(MoveDirection.UP)
 	if Input.is_action_pressed("ui_down"):
