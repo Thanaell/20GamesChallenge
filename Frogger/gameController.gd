@@ -5,12 +5,17 @@ static var max_lane: int = 12
 var max_health = 3
 var current_health = 3
 
-var checked_lilypads = 0
+var checked_lilypads = 4
 var max_lilypads = 5
 
 var frog_current_lane: int = 0
 var lane_y_coordinates: Array[float] = []
 var lane_speeds : Array[float] = []
+
+var canFrogTakeTamage = true
+
+const game_over_scene_path = 'res://game_over_menu.tscn'
+const victory_menu_scene_path = 'res://victory_menu.tscn'
 
 func _process(delta):
 	if current_health==0:
@@ -28,10 +33,25 @@ func _ready():
 		lane_speeds.append(lane.speed)
 	lane_y_coordinates.reverse()
 	lane_speeds.reverse()
+	
+	$Health_UI.play("full")
 
 func on_lilypad_checked():
 	checked_lilypads+=1
+	if (checked_lilypads==max_lilypads):
+		get_tree().change_scene_to_file(victory_menu_scene_path)
 	
+func damage_frog():
+	current_health-=1
+	print ("damage taken")
+	match current_health :
+		3 : $Health_UI.play("full")
+		2 : $Health_UI.play("two_remaining")
+		3 : $Health_UI.play("one_remaining")
+		3 : 
+			$Health_UI.play("empty")
+			get_tree().change_scene_to_file(game_over_scene_path)
+			
 func on_move_input(direction: InputController.MoveDirection):
 	if !$Frog.is_moving_vertical && !$Frog.is_moving_horizontal:
 		if direction == InputController.MoveDirection.UP && frog_current_lane < max_lane:
@@ -55,6 +75,8 @@ func on_frog_death():
 	$Frog.reset($FrogSpawnPosition.position)
 		
 func on_frog_collide(area : Area2D):
+	if (!canFrogTakeTamage):
+		return
 	if (area.blockType == Block.BlockType.TURTLE):
 		area.hasFrog=true
 	if (area.blockType==Block.BlockType.LILYPAD):
@@ -62,8 +84,10 @@ func on_frog_collide(area : Area2D):
 		frog_current_lane = 0
 		
 	if (area.isKill):
-		#TODO : handle death (score)
+		canFrogTakeTamage=false
+		damage_frog()
 		on_frog_death()
+		canFrogTakeTamage=true
 		
 	else:
 		if (area.blockType != Block.BlockType.ROAD):

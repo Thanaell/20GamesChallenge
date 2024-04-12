@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b68alev4jwwcq"]
+
+[ext_resource type="Texture2D" uid="uid://dkl4acyy62u6q" path="res://game_over.png" id="1_fn3do"]
+[ext_resource type="Script" path="res://game_over_menu.gd" id="2_532t1"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+offset_right = 612.0
+offset_bottom = 612.0
+texture = ExtResource("1_fn3do")
+script = ExtResource("2_532t1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 526.0
+offset_right = 302.0
+offset_bottom = 557.0
+scale = Vector2(2.08, 2.08)
+text = "START AGAIN"
+
+[connection signal="pressed" from="Button" to="." method="restart"]
