@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+var bullet_scene = preload("res://bullet.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -28,9 +29,11 @@ func _physics_process(delta):
 		is_moving=true
 		apply_central_force(throttle_force*get_global_transform().basis_xform(Vector2.RIGHT))
 	
-	
 	if Input.is_action_just_pressed("ui_accept"):
-		pass
+		var bullet = bullet_scene.instantiate()
+		bullet.set_direction(get_global_transform().basis_xform(Vector2.RIGHT))
+		get_tree().root.add_child(bullet)
+		bullet.position=$BulletSpawn.get_global_transform().get_origin()
 	if is_moving : 
 		$AnimatedSprite2D.play("throttle_on")
 		$Timer.start(animation_time)

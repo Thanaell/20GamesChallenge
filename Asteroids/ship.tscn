@@ -35,17 +35,20 @@ angular_damp = 0.3
 script = ExtResource("1_nfryy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(12, 16)
+position = Vector2(7, 12)
 rotation = 2.41647
-scale = Vector2(16.9892, 696.615)
+scale = Vector2(11.0681, 453.829)
 polygon = PackedVector2Array(-2.85184, -0.0231838, 1.62963, 0.0149038, -0.407406, 0.0761753)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 2.41647
-scale = Vector2(0.442162, 0.442162)
+scale = Vector2(0.255217, 0.265409)
 sprite_frames = SubResource("SpriteFrames_jqjmh")
 animation = &"throttle_off"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="BulletSpawn" type="Node2D" parent="."]
+position = Vector2(77, -7)
 
 [connection signal="timeout" from="Timer" to="." method="reset_animation"]
