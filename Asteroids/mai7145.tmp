@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://lmvoeu2iq63u"]
+
+[ext_resource type="PackedScene" uid="uid://dvcx1mmqkueox" path="res://background.tscn" id="1_lmjmg"]
+[ext_resource type="PackedScene" uid="uid://bdd073x13cmsb" path="res://ship.tscn" id="2_73g6t"]
+[ext_resource type="PackedScene" uid="uid://dyeiqsy7mng07" path="res://asteroid_large.tscn" id="3_86xwo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlackBackground" parent="." instance=ExtResource("1_lmjmg")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_73g6t")]
+
+[node name="Area2D" parent="." instance=ExtResource("3_86xwo")]
+position = Vector2(258, 255)
