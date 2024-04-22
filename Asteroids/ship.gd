@@ -9,6 +9,8 @@ var is_moving=false
 var animation_time = 1.0
 var throttle_force=500.0
 var torque_force=2000.0
+
+const ship_size = 15.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -18,7 +20,15 @@ func _ready():
 func reset_animation():
 	$AnimatedSprite2D.play("throttle_off")
 
-func _physics_process(delta):
+func _integrate_forces(state):
+	if (position.x < -ship_size):
+		position.x = get_viewport_rect().size.x
+	if (position.x > get_viewport_rect().size.x + ship_size):
+		position.x = 0
+	if (position.y < -ship_size):
+		position.y = get_viewport_rect().size.y
+	if (position.y >get_viewport_rect().size.y + ship_size):
+		position.y = 0
 	if Input.is_action_pressed("ui_left"):
 		is_moving=true
 		apply_torque(-torque_force)
@@ -39,20 +49,3 @@ func _physics_process(delta):
 		$Timer.start(animation_time)
 		is_moving=false
 	
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity.y += gravity * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction = Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-	#move_and_slide()
