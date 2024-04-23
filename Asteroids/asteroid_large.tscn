@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3si0x8j1lbgn" path="res://asteroid_large.png" id="1_sxetg"]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_7atup")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

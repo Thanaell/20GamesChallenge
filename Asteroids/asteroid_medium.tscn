@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://hax5s3xhjn8r" path="res://asteroid_medium.png" id="2_6v00l"]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_ihh3q")
 size = 1
 
