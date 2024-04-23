@@ -29,6 +29,7 @@ animations = [{
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(559, 340)
 gravity_scale = 0.0
+can_sleep = false
 linear_damp_mode = 1
 linear_damp = 0.3
 angular_damp = 0.3

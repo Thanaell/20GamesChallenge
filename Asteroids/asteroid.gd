@@ -5,6 +5,7 @@ enum Size {SMALL, MEDIUM, LARGE}
 var speed = 30.0
 var direction = Vector2(0,1)
 
+var asteroid_despawn_offset = 50.0
 var shouldDestroy=false
 var small_asteroid = preload("res://asteroid_small.tscn")
 var medium_asteroid = preload("res://asteroid_medium.tscn")
@@ -22,6 +23,11 @@ func set_random_direction():
 	var random_x = rng.randf_range(0,1)
 	var random_y = rng.randf_range(0,1)
 	direction=Vector2(random_x,random_y)
+
+func set_random_direction_target(main_target : Vector2):
+	var rng = RandomNumberGenerator.new()
+	var rand_angle = rng.randf_range(-PI/4,PI/4)
+	direction=Vector2(cos(rand_angle)*main_target.x,sin(rand_angle)*main_target.y)
 	
 	
 func on_hit():
@@ -40,6 +46,14 @@ func on_hit():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (position.x < -asteroid_despawn_offset):
+		shouldDestroy = true
+	if (position.x > get_viewport_rect().size.x + asteroid_despawn_offset):
+		shouldDestroy = true
+	if (position.y < -asteroid_despawn_offset):
+		shouldDestroy = true
+	if (position.y >get_viewport_rect().size.y + asteroid_despawn_offset):
+		shouldDestroy = true
 	if(shouldDestroy):
 		queue_free()
 	position+=delta*speed*direction

@@ -20,7 +20,7 @@ func _ready():
 func reset_animation():
 	$AnimatedSprite2D.play("throttle_off")
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	if (position.x < -ship_size):
 		position.x = get_viewport_rect().size.x
 	if (position.x > get_viewport_rect().size.x + ship_size):
@@ -29,6 +29,11 @@ func _integrate_forces(state):
 		position.y = get_viewport_rect().size.y
 	if (position.y >get_viewport_rect().size.y + ship_size):
 		position.y = 0
+
+	# Good practices would be to implement inputs outside of the RigidBody2D
+	# script because they will be ignored when the RigidBody2D goes asleep
+	#
+	# The "can_sleep" was toggled off to prevent this
 	if Input.is_action_pressed("ui_left"):
 		is_moving=true
 		apply_torque(-torque_force)
@@ -42,8 +47,8 @@ func _integrate_forces(state):
 	if Input.is_action_just_pressed("ui_accept"):
 		var bullet = bullet_scene.instantiate()
 		bullet.set_direction(get_global_transform().basis_xform(Vector2.RIGHT))
-		get_tree().root.add_child(bullet)
 		bullet.position=$BulletSpawn.get_global_transform().get_origin()
+		get_tree().root.add_child.bind(bullet).call_deferred()
 	if is_moving : 
 		$AnimatedSprite2D.play("throttle_on")
 		$Timer.start(animation_time)
