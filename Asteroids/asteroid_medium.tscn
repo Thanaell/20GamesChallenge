@@ -13,3 +13,5 @@ polygon = PackedVector2Array(-30, -37, 29, -26, 51, -30, 31, 11, 38, 36, 17, 50,
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6v00l")
+
+[connection signal="body_entered" from="." to="." method="on_collision"]

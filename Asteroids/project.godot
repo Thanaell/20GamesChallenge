@@ -11,6 +11,12 @@ config_version=5
 [application]
 
 config/name="Asteroids"
-run/main_scene="res://main_scene.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="ship"
+2d_physics/layer_2="asteroids"
+2d_physics/layer_3="bullets"

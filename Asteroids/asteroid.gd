@@ -57,4 +57,7 @@ func _process(delta):
 	if(shouldDestroy):
 		queue_free()
 	position+=delta*speed*direction
-	
+
+func on_collision(node: Node2D):
+	if node is Ship:
+		node.ship_crashed()

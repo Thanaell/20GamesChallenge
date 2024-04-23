@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name Ship extends RigidBody2D
 
 var bullet_scene = preload("res://bullet.tscn")
 
@@ -14,9 +14,11 @@ const ship_size = 15.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal crashed
+
 func _ready():
 	reset_animation()
-	
+
 func reset_animation():
 	$AnimatedSprite2D.play("throttle_off")
 
@@ -53,4 +55,10 @@ func _integrate_forces(_state):
 		$AnimatedSprite2D.play("throttle_on")
 		$Timer.start(animation_time)
 		is_moving=false
-	
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://main_scene.tscn")
+
+func ship_crashed():
+	crashed.emit()

@@ -12,3 +12,5 @@ polygon = PackedVector2Array(-70, -45, 36, -98, 100, -68, 89, -52, 132, -8, 138,
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sxetg")
+
+[connection signal="body_entered" from="." to="." method="on_collision"]
