@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxtqweqoaxal4"]
+
+[ext_resource type="Texture2D" uid="uid://y5384bvgq6j0" path="res://Assets/Sprites/pacman/pacman1.png" id="1_xjrxb"]
+[ext_resource type="Texture2D" uid="uid://djuxxclxr6n2c" path="res://Assets/Sprites/pacman/pacman2.png" id="2_jd4c0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_keyq3"]
+radius = 6.08276
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5g1dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xjrxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jd4c0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_keyq3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5g1dt")
