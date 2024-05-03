@@ -8,6 +8,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="level" parent="." instance=ExtResource("1_mt4yd")]
+position = Vector2(0, 0)
 script = ExtResource("2_sqemd")
 
 [node name="Area2D" parent="." instance=ExtResource("2_ekpnp")]
