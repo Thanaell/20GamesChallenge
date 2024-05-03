@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3wt82m6iu2if"]
+
+[ext_resource type="Texture2D" uid="uid://blstrawqf2by8" path="res://Assets/Sprites/star.png" id="1_sqdtg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05o1y"]
+radius = 3.0
+
+[node name="Star" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sqdtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_05o1y")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdw758yb7yci4"]
+
+[ext_resource type="Texture2D" uid="uid://bxvj6y1tsd0pt" path="res://Assets/Sprites/dot.png" id="1_w3ygg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05o1y"]
+radius = 3.0
+
+[node name="Dot" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w3ygg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_05o1y")

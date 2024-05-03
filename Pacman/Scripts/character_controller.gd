@@ -31,7 +31,7 @@ func _process(delta):
 	if !has_speed:
 		if len(direction_buffer) > 0:
 			if tile_map.is_tile_traversable(position, direction_buffer[0]):
-				direction = direction_buffer.pop_front()
+				_update_direction()
 				has_speed = true
 				sprite.play("default")
 				update_path()
@@ -46,7 +46,7 @@ func _process(delta):
 		is_arrived = (path[0] - position).dot(direction) < 0
 		if is_arrived:
 			if should_change_direction:
-				direction = direction_buffer.pop_front()
+				_update_direction()
 				should_change_direction = false
 			if tile_map.is_tile_traversable(position, direction):
 				update_path()
@@ -55,7 +55,15 @@ func _process(delta):
 				has_speed = false
 				sprite.pause()
 
-
+func _update_direction():
+	var sprite = $AnimatedSprite2D
+	direction = direction_buffer.pop_front()
+	if direction.y>0 : sprite.rotation = -PI/2
+	elif direction.y<0: sprite.rotation = PI/2
+	else: sprite.rotation=0
+	if direction.x>0 : scale.x=-1
+	else: scale.x = 1
+	
 func update_path():
 	path.clear()
 	path = tile_map.find_path_with_direction(position, direction)
