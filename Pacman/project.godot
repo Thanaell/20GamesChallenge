@@ -24,3 +24,13 @@ GameController="*res://Scripts/game_controller.gd"
 window/size/viewport_width=912
 window/size/viewport_height=864
 window/stretch/scale=3.0
+
+[layer_names]
+
+2d_physics/layer_1="Pacman"
+2d_physics/layer_2="Ghosts"
+2d_physics/layer_3="DotsAndStars"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

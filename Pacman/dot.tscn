@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdw758yb7yci4"]
 
-[ext_resource type="Script" path="res://dot.gd" id="1_j6x5d"]
+[ext_resource type="Script" path="res://Scripts/dot.gd" id="1_5du7e"]
 [ext_resource type="Texture2D" uid="uid://bxvj6y1tsd0pt" path="res://Assets/Sprites/dot.png" id="1_w3ygg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_05o1y"]
 radius = 3.0
 
 [node name="Dot" type="Area2D"]
-script = ExtResource("1_j6x5d")
+collision_layer = 4
+script = ExtResource("1_5du7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w3ygg")

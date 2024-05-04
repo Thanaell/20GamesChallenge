@@ -56,7 +56,6 @@ func _process(delta):
 				sprite.pause()
 
 func _update_direction():
-	var sprite = $AnimatedSprite2D
 	direction = direction_buffer.pop_front()
 	if direction.y>0 : sprite.rotation = -PI/2
 	elif direction.y<0: sprite.rotation = PI/2
