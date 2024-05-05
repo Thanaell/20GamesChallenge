@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpmt7yhl556wi"]
+[gd_scene load_steps=9 format=3 uid="uid://dpmt7yhl556wi"]
 
 [ext_resource type="Script" path="res://Scripts/red_ghost.gd" id="1_ao5a5"]
 [ext_resource type="Texture2D" uid="uid://cph1bo1ojfccc" path="res://Assets/Sprites/red_ghost/red_ghost4.png" id="2_umx5r"]
 [ext_resource type="Texture2D" uid="uid://dtevlguwqtxj1" path="res://Assets/Sprites/red_ghost/red_ghost1.png" id="3_3jopn"]
+[ext_resource type="Texture2D" uid="uid://brijqcess13di" path="res://Assets/Sprites/revenge_ghost.png" id="4_6b18d"]
 [ext_resource type="Texture2D" uid="uid://bw5ccinwld1ls" path="res://Assets/Sprites/red_ghost/red_ghost2.png" id="4_t2o1b"]
 [ext_resource type="Texture2D" uid="uid://cxqs6k8hqwaw2" path="res://Assets/Sprites/red_ghost/red_ghost3.png" id="5_8jxys"]
 
@@ -22,6 +23,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6b18d")
+}],
+"loop": true,
+"name": &"revenge",
 "speed": 5.0
 }, {
 "frames": [{
@@ -51,13 +60,8 @@ spawn_position = Vector2(280, 24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7pn5s")
-animation = &"up"
+animation = &"revenge"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jy2nk")
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="on_timeout"]

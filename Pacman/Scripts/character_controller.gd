@@ -37,7 +37,7 @@ func _process(delta):
 
 	if !has_speed:
 		if len(direction_buffer) > 0:
-			if tile_map.is_tile_traversable(position, direction_buffer[0]):
+			if tile_map.is_traversable_with_direction(position, direction_buffer[0]):
 				_update_direction()
 				has_speed = true
 				sprite.play("default")
@@ -46,7 +46,7 @@ func _process(delta):
 				direction_buffer.clear()
 	else:
 		if len(direction_buffer) > 0:
-			if tile_map.is_tile_traversable(position, direction_buffer[0]):
+			if tile_map.is_traversable_with_direction(position, direction_buffer[0]):
 				should_change_direction = true
 
 		position += delta * max_speed * direction
@@ -55,7 +55,7 @@ func _process(delta):
 			if should_change_direction:
 				_update_direction()
 				should_change_direction = false
-			if tile_map.is_tile_traversable(position, direction):
+			if tile_map.is_traversable_with_direction(position, direction):
 				update_path()
 			else:
 				position = path[0]

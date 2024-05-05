@@ -43,10 +43,24 @@ func find_neighbour_cells(target_cell: Vector2i) -> Array[Vector2i]:
 	return neighbour_cells
 
 
-func is_tile_traversable(source_coord: Vector2, direction: Vector2) -> bool:
-	var target_map_index: Vector2i = local_to_map(source_coord + (tile_size * direction))
-	var tile_data: TileData = get_cell_tile_data(0, target_map_index)
+func is_tile_traversable(tile_index: Vector2i) -> bool:
+	var tile_data: TileData = get_cell_tile_data(0, tile_index)
 	return tile_data.get_custom_data("is_traversable")
+
+
+func is_traversable_with_direction(source_coord: Vector2, direction: Vector2) -> bool:
+	var target_map_index: Vector2i = local_to_map(source_coord + (tile_size * direction))
+	return is_tile_traversable(target_map_index)
+
+
+func get_traversable_neighbours_number(source_position: Vector2) -> int:
+	var traversable_neighbours_number: int = 0
+	var source_point: Vector2i = local_to_map(source_position)
+	var neighbour_cells: Array[Vector2i] = find_neighbour_cells(source_point)
+	for cell in neighbour_cells:
+		if is_tile_traversable(cell):
+			traversable_neighbours_number += 1
+	return traversable_neighbours_number
 
 
 func find_path(source_coord: Vector2, target_coord: Vector2) -> PackedVector2Array:

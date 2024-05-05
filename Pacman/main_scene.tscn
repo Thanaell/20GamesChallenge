@@ -13,6 +13,9 @@
 [node name="level" parent="." instance=ExtResource("1_mt4yd")]
 script = ExtResource("2_sqemd")
 
+[node name="level2" parent="." instance=ExtResource("1_mt4yd")]
+script = ExtResource("2_sqemd")
+
 [node name="pacman" parent="." instance=ExtResource("2_ekpnp")]
 position = Vector2(152, 136)
 

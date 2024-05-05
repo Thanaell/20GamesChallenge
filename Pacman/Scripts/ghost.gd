@@ -20,9 +20,9 @@ func _ready():
 func _process(delta):
 	if len(path) < 2:
 		if game_state == GameController.GAME_STATE.NORMAL:
-			path = chose_path()
+			path = choose_path()
 		else:
-			path = chose_revenge_path()
+			path = choose_revenge_path()
 	else:
 		var direction: Vector2 = (path[1] - position).normalized()
 		update_sprite(direction)
@@ -31,29 +31,30 @@ func _process(delta):
 		if is_arrived:
 			position = path[1]
 			path.remove_at(1)
+			if tile_map.get_traversable_neighbours_number(position) > 2:
+				if game_state == GameController.GAME_STATE.NORMAL:
+					path = choose_path()
+				else:
+					path = choose_revenge_path()
 
 
-func update_sprite(direction: Vector2):
+func update_sprite(direction: Vector2 = Vector2(0,0)):
 	var sprite: AnimatedSprite2D = $AnimatedSprite2D
-	if direction.x > 0: sprite.play("right")
-	elif direction.y > 0: sprite.play("down")
-	elif direction.x < 0: sprite.play("left")
-	elif direction.y < 0: sprite.play("up")
-
-
-func on_timeout():
-	if game_state == GameController.GAME_STATE.NORMAL:
-		path = chose_path()
+	if(game_state==GameController.GAME_STATE.REVENGE):
+		sprite.play("revenge")
 	else:
-		path = chose_revenge_path()
+		if direction.x > 0: sprite.play("right")
+		elif direction.y > 0: sprite.play("down")
+		elif direction.x < 0: sprite.play("left")
+		elif direction.y < 0: sprite.play("up")
 
 
-func chose_path() -> PackedVector2Array:
+func choose_path() -> PackedVector2Array:
 	print("This is an abstract function that should not be called")
 	return PackedVector2Array()
 
 
-func chose_revenge_path() -> PackedVector2Array:
+func choose_revenge_path() -> PackedVector2Array:
 	return tile_map.find_path(position, spawn_position)
 
 
@@ -65,6 +66,7 @@ func change_state(new_game_state):
 	else:
 		speed = revenge_speed
 		path.clear()
+	update_sprite()
 
 
 func reset():
