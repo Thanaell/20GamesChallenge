@@ -2,4 +2,5 @@ extends Ghost
 
 
 func chose_path() -> PackedVector2Array:
-	return tile_map.find_path(position, pacman.position)
+	var target_position: Vector2 = tile_map.find_position_in_front(pacman.position, pacman.direction, 4)
+	return tile_map.find_path(position, target_position)

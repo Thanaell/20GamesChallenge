@@ -18,8 +18,8 @@ position = Vector2(152, 136)
 
 [node name="blue_ghost" parent="." instance=ExtResource("5_femq3")]
 
-[node name="pink_ghost" parent="." instance=ExtResource("5_yso2h")]
-
 [node name="red_ghost" parent="." instance=ExtResource("6_ju2wt")]
+
+[node name="pink_ghost" parent="." instance=ExtResource("5_yso2h")]
 
 [node name="orange_ghost" parent="." instance=ExtResource("7_r8cmi")]

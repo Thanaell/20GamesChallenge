@@ -11,10 +11,6 @@ var game_state: GAME_STATE = GAME_STATE.NORMAL
 @onready var orange_ghost: Ghost = $"../main_scene/orange_ghost"
 
 
-func _process(_delta):
-	pass
-
-
 func on_dot_eaten():
 	pass
 

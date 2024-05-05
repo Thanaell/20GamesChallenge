@@ -9,7 +9,7 @@ var game_state = GameController.GAME_STATE.NORMAL
 
 @export var spawn_position: Vector2
 
-@onready var pacman: Area2D = $"../pacman"
+@onready var pacman: Pacman = $"../pacman"
 @onready var tile_map: Pathfinder = $"../level"
 
 
