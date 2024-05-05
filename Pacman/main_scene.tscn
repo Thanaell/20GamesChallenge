@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/pathfinder.gd" id="2_sqemd"]
 [ext_resource type="PackedScene" uid="uid://cad7y8s4cwqd5" path="res://blue_ghost.tscn" id="5_femq3"]
 
-[node name="Node2D" type="Node2D"]
+[node name="main_scene" type="Node2D"]
 
 [node name="level" parent="." instance=ExtResource("1_mt4yd")]
 script = ExtResource("2_sqemd")

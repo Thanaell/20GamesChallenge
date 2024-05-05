@@ -1,7 +1,8 @@
-extends Area2D
+class_name Pacman extends Area2D
 
 const max_speed: float = 100.0
 const arrive_distance: float = 0.1
+const spawn_position: Vector2 = Vector2(152.0, 136.0)
 
 var has_speed: bool = false
 var is_arrived: bool = true
@@ -13,7 +14,7 @@ var path: PackedVector2Array = PackedVector2Array()
 @onready var tile_map: Pathfinder = $"../level"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-signal pacman_hit
+signal pacman_hit(Area2D)
 
 
 func _ready():
@@ -75,5 +76,14 @@ func update_path():
 	path.remove_at(0)
 
 
-func on_ghost_collision(_area: Area2D):
-	pacman_hit.emit()
+func on_ghost_collision(area: Area2D):
+	pacman_hit.emit(area)
+
+
+func reset():
+	position = spawn_position
+	has_speed = false
+	is_arrived = true
+	should_change_direction = false
+	direction_buffer.clear()
+	path.clear()

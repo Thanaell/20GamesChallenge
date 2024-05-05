@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwi4lcqr4pxav"]
+
+[ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_g5e0d"]
+
+[node name="game_controller" type="Node2D"]
+script = ExtResource("1_g5e0d")
+
+[node name="revenge_timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="revenge_timer" to="." method="on_revenge_end"]

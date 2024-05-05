@@ -20,6 +20,7 @@ size = Vector2(14, 13)
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_ve6pf")
+spawn_position = Vector2(24, 24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7pn5s")

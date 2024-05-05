@@ -3,6 +3,8 @@ class_name Ghost extends Area2D
 var speed: float = 100.0
 var path: PackedVector2Array = PackedVector2Array()
 
+@export var spawn_position: Vector2
+
 @onready var pacman: Area2D = $"../pacman"
 @onready var tile_map: Pathfinder = $"../level"
 
@@ -26,3 +28,8 @@ func chose_path() -> PackedVector2Array:
 
 func on_timeout():
 	path = chose_path()
+
+
+func reset():
+	position = spawn_position
+	path.clear()
