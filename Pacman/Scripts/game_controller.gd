@@ -18,11 +18,13 @@ func on_dot_eaten():
 
 func on_star_eaten():
 	game_state = GAME_STATE.REVENGE
+	blue_ghost.change_state(game_state)
 	$revenge_timer.start()
 
 
 func on_revenge_end():
 	game_state = GAME_STATE.NORMAL
+	blue_ghost.change_state(game_state)
 
 
 func on_pacman_hit(ghost_area: Area2D):

@@ -1,7 +1,11 @@
 class_name Ghost extends Area2D
 
-var speed: float = 100.0
+const normal_speed: float = 90.0
+const revenge_speed: float = 65.0
+
+var speed: float = 90.0
 var path: PackedVector2Array = PackedVector2Array()
+var game_state = GameController.GAME_STATE.NORMAL
 
 @export var spawn_position: Vector2
 
@@ -11,7 +15,10 @@ var path: PackedVector2Array = PackedVector2Array()
 
 func _process(delta):
 	if len(path) < 2:
-		path = chose_path()
+		if game_state == GameController.GAME_STATE.NORMAL:
+			path = chose_path()
+		else:
+			path = chose_revenge_path()
 	else:
 		var direction: Vector2 = (path[1] - position).normalized()
 		position += delta * speed * direction
@@ -21,13 +28,30 @@ func _process(delta):
 			path.remove_at(1)
 
 
+func on_timeout():
+	if game_state == GameController.GAME_STATE.NORMAL:
+		path = chose_path()
+	else:
+		path = chose_revenge_path()
+
+
 func chose_path() -> PackedVector2Array:
 	print("This is an abstract function that should not be called")
 	return PackedVector2Array()
 
 
-func on_timeout():
-	path = chose_path()
+func chose_revenge_path() -> PackedVector2Array:
+	return tile_map.find_path(position, spawn_position)
+
+
+func change_state(new_game_state):
+	game_state = new_game_state
+	if game_state == GameController.GAME_STATE.NORMAL:
+		speed = normal_speed
+		path.clear()
+	else:
+		speed = revenge_speed
+		path.clear()
 
 
 func reset():
