@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://yagisnq2n4h8"]
+[gd_scene load_steps=5 format=3 uid="uid://yagisnq2n4h8"]
 
 [ext_resource type="PackedScene" uid="uid://bis7apgc8ynmb" path="res://level.tscn" id="1_mt4yd"]
 [ext_resource type="PackedScene" uid="uid://cxtqweqoaxal4" path="res://pacman.tscn" id="2_ekpnp"]
 [ext_resource type="Script" path="res://Scripts/pathfinder.gd" id="2_sqemd"]
-[ext_resource type="Script" path="res://Scripts/character_controller.gd" id="3_7nf1d"]
 [ext_resource type="PackedScene" uid="uid://cad7y8s4cwqd5" path="res://blue_ghost.tscn" id="5_femq3"]
 
 [node name="Node2D" type="Node2D"]
@@ -13,7 +12,6 @@ script = ExtResource("2_sqemd")
 
 [node name="pacman" parent="." instance=ExtResource("2_ekpnp")]
 position = Vector2(152, 136)
-script = ExtResource("3_7nf1d")
 
 [node name="blue_ghost" parent="." instance=ExtResource("5_femq3")]
 position = Vector2(24, 24)

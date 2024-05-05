@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxtqweqoaxal4"]
+[gd_scene load_steps=6 format=3 uid="uid://cxtqweqoaxal4"]
 
+[ext_resource type="Script" path="res://Scripts/character_controller.gd" id="1_ua8r3"]
 [ext_resource type="Texture2D" uid="uid://y5384bvgq6j0" path="res://Assets/Sprites/pacman/pacman1.png" id="1_xjrxb"]
 [ext_resource type="Texture2D" uid="uid://djuxxclxr6n2c" path="res://Assets/Sprites/pacman/pacman2.png" id="2_jd4c0"]
 
@@ -22,9 +23,12 @@ animations = [{
 
 [node name="Area2D" type="Area2D"]
 collision_mask = 2
+script = ExtResource("1_ua8r3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_keyq3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5g1dt")
+
+[connection signal="area_entered" from="." to="." method="on_ghost_collision"]

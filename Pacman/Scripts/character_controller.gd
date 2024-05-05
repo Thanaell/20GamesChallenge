@@ -13,6 +13,12 @@ var path: PackedVector2Array = PackedVector2Array()
 @onready var tile_map: Pathfinder = $"../level"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal pacman_hit
+
+
+func _ready():
+	pacman_hit.connect(GameController.on_pacman_hit)
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && direction != Vector2.RIGHT:
@@ -67,3 +73,7 @@ func update_path():
 	path.clear()
 	path = tile_map.find_path_with_direction(position, direction)
 	path.remove_at(0)
+
+
+func on_ghost_collision(_area: Area2D):
+	pacman_hit.emit()
