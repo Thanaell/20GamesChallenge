@@ -1,16 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cad7y8s4cwqd5"]
+[gd_scene load_steps=8 format=3 uid="uid://b3gbt5vujn7ob"]
 
-[ext_resource type="Script" path="res://Scripts/blue_ghost.gd" id="1_ve6pf"]
-[ext_resource type="Texture2D" uid="uid://dfmnx1thqkwii" path="res://Assets/Sprites/blue_ghost/blue_ghost4.png" id="2_4sccp"]
-[ext_resource type="Texture2D" uid="uid://cdb7bg57xn0mh" path="res://Assets/Sprites/blue_ghost/blue_ghost1.png" id="2_6xrvm"]
-[ext_resource type="Texture2D" uid="uid://b717f1rldfr8t" path="res://Assets/Sprites/blue_ghost/blue_ghost2.png" id="4_yp7on"]
-[ext_resource type="Texture2D" uid="uid://cd6p15ntlx6gs" path="res://Assets/Sprites/blue_ghost/blue_ghost3.png" id="5_21ryo"]
+[ext_resource type="Script" path="res://Scripts/pink_ghost.gd" id="1_tc3fx"]
+[ext_resource type="Texture2D" uid="uid://bs70yoiibgag5" path="res://Assets/Sprites/pink_ghost/pink_ghost4.png" id="2_aeokq"]
+[ext_resource type="Texture2D" uid="uid://bti3ufxo65x0d" path="res://Assets/Sprites/pink_ghost/pink_ghost1.png" id="3_tvhlt"]
+[ext_resource type="Texture2D" uid="uid://dl2si4q7h4al8" path="res://Assets/Sprites/pink_ghost/pink_ghost2.png" id="4_fdt57"]
+[ext_resource type="Texture2D" uid="uid://dc67o6akwvuwy" path="res://Assets/Sprites/pink_ghost/pink_ghost3.png" id="5_4hg1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7pn5s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4sccp")
+"texture": ExtResource("2_aeokq")
 }],
 "loop": true,
 "name": &"down",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6xrvm")
+"texture": ExtResource("3_tvhlt")
 }],
 "loop": true,
 "name": &"left",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_yp7on")
+"texture": ExtResource("4_fdt57")
 }],
 "loop": true,
 "name": &"right",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_21ryo")
+"texture": ExtResource("5_4hg1p")
 }],
 "loop": true,
 "name": &"up",
@@ -46,12 +46,12 @@ size = Vector2(14, 13)
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
-script = ExtResource("1_ve6pf")
-spawn_position = Vector2(24, 24)
+script = ExtResource("1_tc3fx")
+spawn_position = Vector2(24, 264)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7pn5s")
-animation = &"down"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

@@ -13,6 +13,10 @@ var game_state = GameController.GAME_STATE.NORMAL
 @onready var tile_map: Pathfinder = $"../level"
 
 
+func _ready():
+	reset()
+
+
 func _process(delta):
 	if len(path) < 2:
 		if game_state == GameController.GAME_STATE.NORMAL:
@@ -21,11 +25,20 @@ func _process(delta):
 			path = chose_revenge_path()
 	else:
 		var direction: Vector2 = (path[1] - position).normalized()
+		update_sprite(direction)
 		position += delta * speed * direction
 		var is_arrived: bool = (path[1] - position).dot(direction) < 0
 		if is_arrived:
 			position = path[1]
 			path.remove_at(1)
+
+
+func update_sprite(direction: Vector2):
+	var sprite: AnimatedSprite2D = $AnimatedSprite2D
+	if direction.x > 0: sprite.play("right")
+	elif direction.y > 0: sprite.play("down")
+	elif direction.x < 0: sprite.play("left")
+	elif direction.y < 0: sprite.play("up")
 
 
 func on_timeout():

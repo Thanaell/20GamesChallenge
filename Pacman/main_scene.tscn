@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://yagisnq2n4h8"]
+[gd_scene load_steps=8 format=3 uid="uid://yagisnq2n4h8"]
 
 [ext_resource type="PackedScene" uid="uid://bis7apgc8ynmb" path="res://level.tscn" id="1_mt4yd"]
 [ext_resource type="PackedScene" uid="uid://cxtqweqoaxal4" path="res://pacman.tscn" id="2_ekpnp"]
 [ext_resource type="Script" path="res://Scripts/pathfinder.gd" id="2_sqemd"]
 [ext_resource type="PackedScene" uid="uid://cad7y8s4cwqd5" path="res://blue_ghost.tscn" id="5_femq3"]
+[ext_resource type="PackedScene" uid="uid://b3gbt5vujn7ob" path="res://pink_ghost.tscn" id="5_yso2h"]
+[ext_resource type="PackedScene" uid="uid://dpmt7yhl556wi" path="res://red_ghost.tscn" id="6_ju2wt"]
+[ext_resource type="PackedScene" uid="uid://dm1e85tifjkru" path="res://orange_ghost.tscn" id="7_r8cmi"]
 
 [node name="main_scene" type="Node2D"]
 
@@ -14,4 +17,9 @@ script = ExtResource("2_sqemd")
 position = Vector2(152, 136)
 
 [node name="blue_ghost" parent="." instance=ExtResource("5_femq3")]
-position = Vector2(24, 24)
+
+[node name="pink_ghost" parent="." instance=ExtResource("5_yso2h")]
+
+[node name="red_ghost" parent="." instance=ExtResource("6_ju2wt")]
+
+[node name="orange_ghost" parent="." instance=ExtResource("7_r8cmi")]
