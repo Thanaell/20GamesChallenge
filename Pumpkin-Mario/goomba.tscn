@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfg0iw4wjsop3"]
+
+[ext_resource type="Texture2D" uid="uid://bt3xm3g6ow4sq" path="res://Assets/goomba.png" id="1_8r365"]
+[ext_resource type="Script" path="res://goomba.gd" id="1_46sua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p817j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a12sd"]
+radius = 27.6586
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_46sua")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8r365")
+
+[node name="killGoombaArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="killGoombaCollisionShape" type="CollisionShape2D" parent="killGoombaArea"]
+position = Vector2(1, -6)
+scale = Vector2(1.88807, 1.12142)
+shape = SubResource("CircleShape2D_p817j")
+
+[node name="killPlayerArea" type="Area2D" parent="."]
+
+[node name="killPlayerCollisionShape" type="CollisionShape2D" parent="killPlayerArea"]
+position = Vector2(1, 31)
+scale = Vector2(1.27853, -1.14291)
+shape = SubResource("CircleShape2D_a12sd")
+
+[connection signal="area_entered" from="killGoombaArea" to="." method="on_kill_goomba_entered"]

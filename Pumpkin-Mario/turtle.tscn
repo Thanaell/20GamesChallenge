@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://q4ueyrv4cick"]
+
+[ext_resource type="Texture2D" uid="uid://cfebm7m0gnyr8" path="res://Assets/turtle2.png" id="1_55p0u"]
+[ext_resource type="Texture2D" uid="uid://cgufrjp3wo7b2" path="res://Assets/turtle1.png" id="2_13577"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ea2rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_55p0u")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_13577")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hxxau"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ea2rl")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 24)
+scale = Vector2(3.65875, 3.58632)
+shape = SubResource("CircleShape2D_hxxau")

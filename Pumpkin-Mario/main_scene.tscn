@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1vuvmlx36ihe"]
+
+[ext_resource type="PackedScene" uid="uid://bvyvmtriqqdvf" path="res://level.tscn" id="1_2wcrl"]
+[ext_resource type="PackedScene" uid="uid://dfg0iw4wjsop3" path="res://goomba.tscn" id="2_tjx7n"]
+[ext_resource type="PackedScene" uid="uid://q4ueyrv4cick" path="res://turtle.tscn" id="3_yfcmo"]
+[ext_resource type="PackedScene" uid="uid://dskydl70hr3k3" path="res://character.tscn" id="4_42odv"]
+
+[node name="main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_2wcrl")]
+
+[node name="Area2D" parent="." instance=ExtResource("2_tjx7n")]
+position = Vector2(1114, 447)
+
+[node name="Area2D2" parent="." instance=ExtResource("3_yfcmo")]
+position = Vector2(2237, 443)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_42odv")]
+position = Vector2(98, 444)

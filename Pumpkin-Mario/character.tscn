@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dskydl70hr3k3"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_fhjbv"]
+[ext_resource type="Texture2D" uid="uid://ya0a7l1jv6a6" path="res://Assets/character/character1.png" id="1_tilld"]
+[ext_resource type="Texture2D" uid="uid://b7qbof2bokaq4" path="res://Assets/character/character2.png" id="2_g6hbu"]
+[ext_resource type="Texture2D" uid="uid://ccoko41thuaqp" path="res://Assets/character/character7.png" id="3_aogox"]
+[ext_resource type="Texture2D" uid="uid://ookywf7lvxof" path="res://Assets/character/character3.png" id="4_raisx"]
+[ext_resource type="Texture2D" uid="uid://di1qthekmboyg" path="res://Assets/character/character4.png" id="5_bl76a"]
+[ext_resource type="Texture2D" uid="uid://dkinejhbfyoal" path="res://Assets/character/character5.png" id="6_x6x5m"]
+[ext_resource type="Texture2D" uid="uid://dtfjknbote5ax" path="res://Assets/character/character6.png" id="7_4i2fv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d37ou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tilld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g6hbu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aogox")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_raisx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bl76a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x6x5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4i2fv")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60t05"]
+radius = 16.2788
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ac5du"]
+radius = 34.0
+height = 126.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_fhjbv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d37ou")
+animation = &"jumping"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="killEnemyArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="killEnemyCollisionShape" type="CollisionShape2D" parent="killEnemyArea"]
+position = Vector2(-1, 63)
+scale = Vector2(1.6, 0.480001)
+shape = SubResource("CircleShape2D_60t05")
+
+[node name="killPlayerCollisionShape" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_ac5du")
