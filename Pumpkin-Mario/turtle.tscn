@@ -28,6 +28,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rjncn"]
 
 [node name="turtle" type="RigidBody2D" groups=["enemy"]]
+max_contacts_reported = 10
+contact_monitor = true
+linear_damp_mode = 1
 script = ExtResource("1_dwn08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -49,4 +52,5 @@ position = Vector2(9, -2)
 scale = Vector2(3.04807, 1.12142)
 shape = SubResource("CircleShape2D_rjncn")
 
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
 [connection signal="area_entered" from="stompTurtleArea" to="." method="on_stomp_turtle"]

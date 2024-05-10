@@ -42,8 +42,11 @@ func _physics_process(delta):
 	if velocity.x==0 && is_on_floor() : $AnimatedSprite2D.play("idle")
 	move_and_slide()
 	for i in get_slide_collision_count():
-		if get_slide_collision(i).get_collider().is_in_group("enemy"):
-			on_kill_player_collision()
+		var collider = get_slide_collision(i).get_collider()
+		if collider is Enemy:
+			if collider.handle_player_collision(-get_slide_collision(i).get_normal()):
+				print("OH NO I DIED")
+				#on_kill_player_collision()
 
 
 func on_kill_player_collision():

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Enemy
 
 
 func on_kill_goomba_entered(_area : Area2D):
