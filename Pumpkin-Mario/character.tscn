@@ -74,5 +74,4 @@ scale = Vector2(1.6, 0.480001)
 shape = SubResource("CircleShape2D_60t05")
 
 [node name="killPlayerCollisionShape" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_ac5du")

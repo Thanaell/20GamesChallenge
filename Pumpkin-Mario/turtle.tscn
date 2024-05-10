@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://q4ueyrv4cick"]
+[gd_scene load_steps=7 format=3 uid="uid://q4ueyrv4cick"]
 
 [ext_resource type="Texture2D" uid="uid://cfebm7m0gnyr8" path="res://Assets/turtle2.png" id="1_55p0u"]
+[ext_resource type="Script" path="res://turtle.gd" id="1_dwn08"]
 [ext_resource type="Texture2D" uid="uid://cgufrjp3wo7b2" path="res://Assets/turtle1.png" id="2_13577"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ea2rl"]
@@ -22,15 +23,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hxxau"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttl67"]
 
-[node name="Area2D" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjncn"]
+
+[node name="turtle" type="RigidBody2D" groups=["enemy"]]
+script = ExtResource("1_dwn08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ea2rl")
-animation = &"up"
+animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, 24)
-scale = Vector2(3.65875, 3.58632)
-shape = SubResource("CircleShape2D_hxxau")
+position = Vector2(3, 48)
+scale = Vector2(3.6, 1.617)
+shape = SubResource("RectangleShape2D_ttl67")
+
+[node name="stompTurtleArea" type="Area2D" parent="."]
+position = Vector2(9, 31)
+collision_layer = 2
+collision_mask = 2
+
+[node name="stompTurtleCollisionShape" type="CollisionShape2D" parent="stompTurtleArea"]
+position = Vector2(9, -2)
+scale = Vector2(3.04807, 1.12142)
+shape = SubResource("CircleShape2D_rjncn")
+
+[connection signal="area_entered" from="stompTurtleArea" to="." method="on_stomp_turtle"]

@@ -1,11 +1,17 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
+const SPAWN_POSITION: Vector2 = Vector2(98.0, 444.0)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var should_bounce: bool = false
+
+
+func _ready():
+	position = SPAWN_POSITION
 
 
 func _physics_process(delta):
@@ -17,6 +23,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("running")
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	if should_bounce:
+		should_bounce = false
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -31,3 +41,14 @@ func _physics_process(delta):
 	else : $AnimatedSprite2D.scale.x=-1
 	if velocity.x==0 && is_on_floor() : $AnimatedSprite2D.play("idle")
 	move_and_slide()
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider().is_in_group("enemy"):
+			on_kill_player_collision()
+
+
+func on_kill_player_collision():
+	position = SPAWN_POSITION
+
+
+func on_bounce():
+	should_bounce = true

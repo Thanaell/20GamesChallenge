@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_a12sd"]
 radius = 27.6586
 
-[node name="Area2D" type="Area2D"]
+[node name="goomba" type="RigidBody2D" groups=["enemy"]]
 script = ExtResource("1_46sua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -23,9 +23,7 @@ position = Vector2(1, -6)
 scale = Vector2(1.88807, 1.12142)
 shape = SubResource("CircleShape2D_p817j")
 
-[node name="killPlayerArea" type="Area2D" parent="."]
-
-[node name="killPlayerCollisionShape" type="CollisionShape2D" parent="killPlayerArea"]
+[node name="killPlayerCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, 31)
 scale = Vector2(1.27853, -1.14291)
 shape = SubResource("CircleShape2D_a12sd")
