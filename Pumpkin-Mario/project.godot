@@ -21,5 +21,6 @@ Character="*res://character.tscn"
 
 [layer_names]
 
-2d_physics/layer_1="General"
-2d_physics/layer_2="Kill enemies"
+2d_physics/layer_1="Tilemap"
+2d_physics/layer_2="EnemyKillbox"
+2d_physics/layer_3="PlayerKillbox"

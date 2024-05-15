@@ -8,14 +8,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_a12sd"]
 radius = 27.6586
 
-[node name="goomba" type="RigidBody2D" groups=["enemy"]]
+[node name="goomba" type="Area2D" groups=["enemy"]]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_46sua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8r365")
 
 [node name="killGoombaArea" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="killGoombaCollisionShape" type="CollisionShape2D" parent="killGoombaArea"]
@@ -28,4 +30,19 @@ position = Vector2(1, 31)
 scale = Vector2(1.27853, -1.14291)
 shape = SubResource("CircleShape2D_a12sd")
 
-[connection signal="area_entered" from="killGoombaArea" to="." method="on_kill_goomba_entered"]
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 23)
+rotation = 1.5708
+scale = Vector2(1, 0.8)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 23)
+rotation = -1.5708
+scale = Vector2(1, 0.84)
+collision_mask = 3
+collide_with_areas = true
+
+[connection signal="body_entered" from="." to="." method="on_kill_player_entered"]
+[connection signal="area_entered" from="killGoombaArea" to="." method="on_kill_enemy_entered"]

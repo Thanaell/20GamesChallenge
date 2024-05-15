@@ -10,6 +10,7 @@
 
 [node name="goomba" parent="." instance=ExtResource("2_tjx7n")]
 position = Vector2(1114, 447)
+speed = 150.0
 
 [node name="turtle" parent="." instance=ExtResource("3_yfcmo")]
 position = Vector2(2237, 443)
