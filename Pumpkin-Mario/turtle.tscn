@@ -1,22 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://q4ueyrv4cick"]
+[gd_scene load_steps=9 format=3 uid="uid://q4ueyrv4cick"]
 
 [ext_resource type="Texture2D" uid="uid://cfebm7m0gnyr8" path="res://Assets/turtle2.png" id="1_55p0u"]
 [ext_resource type="Script" path="res://turtle.gd" id="1_dwn08"]
+[ext_resource type="Texture2D" uid="uid://dhg8v6ne3kg2x" path="res://Assets/turtle3.png" id="2_283x4"]
 [ext_resource type="Texture2D" uid="uid://cgufrjp3wo7b2" path="res://Assets/turtle1.png" id="2_13577"]
+[ext_resource type="Texture2D" uid="uid://dsnivp1ekolfq" path="res://Assets/turtle4.png" id="3_ggjgq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ea2rl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_55p0u")
+"texture": ExtResource("2_283x4")
 }],
 "loop": true,
-"name": &"down",
+"name": &"down_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_283x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ggjgq")
+}],
+"loop": true,
+"name": &"down_moving",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_13577")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_55p0u")
 }],
 "loop": true,
 "name": &"up",
@@ -34,7 +50,7 @@ script = ExtResource("1_dwn08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ea2rl")
-animation = &"down"
+animation = &"down_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 48)

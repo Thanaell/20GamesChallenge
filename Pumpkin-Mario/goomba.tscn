@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfg0iw4wjsop3"]
+[gd_scene load_steps=7 format=3 uid="uid://dfg0iw4wjsop3"]
 
-[ext_resource type="Texture2D" uid="uid://bt3xm3g6ow4sq" path="res://Assets/goomba.png" id="1_8r365"]
 [ext_resource type="Script" path="res://goomba.gd" id="1_46sua"]
+[ext_resource type="Texture2D" uid="uid://dl8ssctalycax" path="res://Assets/goomba1.png" id="2_01ki0"]
+[ext_resource type="Texture2D" uid="uid://dvik2713s0b5l" path="res://Assets/goomba2.png" id="3_qeyey"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woxcp"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_01ki0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qeyey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p817j"]
 
@@ -13,8 +28,8 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_46sua")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8r365")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_woxcp")
 
 [node name="killGoombaArea" type="Area2D" parent="."]
 collision_layer = 0

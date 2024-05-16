@@ -15,6 +15,8 @@ func _process(delta):
 		direction = -1
 	
 	position.x += direction * speed * delta
+	if direction>0 : $AnimatedSprite2D.scale.x=-1
+	elif direction<0 : $AnimatedSprite2D.scale.x=1
 
 
 func on_kill_player_entered(_body: Node2D):

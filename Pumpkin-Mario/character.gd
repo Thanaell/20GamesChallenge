@@ -8,6 +8,7 @@ const SPAWN_POSITION: Vector2 = Vector2(98.0, 444.0)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var should_bounce: bool = false
+var is_moving : bool = false
 
 
 func _ready():
@@ -20,8 +21,14 @@ func _physics_process(delta):
 	if not is_on_floor():
 		$AnimatedSprite2D.play("jumping")
 		velocity.y += gravity * delta
-	else :
+	if abs(velocity.x)<=0.01 && is_on_floor() && !is_moving : 
+		$AnimatedSprite2D.play("idle")
+		is_moving=true
+	if abs(velocity.x)>0.01 && is_on_floor() : 
+		is_moving=false
 		$AnimatedSprite2D.play("running")
+	if velocity.x>=0 : $AnimatedSprite2D.scale.x=1
+	else : $AnimatedSprite2D.scale.x=-1
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -38,9 +45,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if velocity.x>=0 : $AnimatedSprite2D.scale.x=1
-	else : $AnimatedSprite2D.scale.x=-1
-	if velocity.x<=0.01 && is_on_floor() : $AnimatedSprite2D.play("idle")
+	
+	
 	move_and_slide()
 
 

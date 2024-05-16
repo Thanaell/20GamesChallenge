@@ -21,6 +21,7 @@ func on_kill_player_entered(body: Node2D):
 		if direction != 0.0:
 			Character.on_kill_player_collision()
 		else:
+			$AnimatedSprite2D.play("down_moving")
 			if body.position.x - position.x > 0:
 				direction = -1
 			else:
@@ -31,11 +32,12 @@ func on_kill_enemy_entered(_area : Area2D):
 	Character.on_bounce()
 	if is_up:
 		is_up = false
-		$AnimatedSprite2D.play("down")
+		$AnimatedSprite2D.play("down_idle")
 		turtle_stomp_area.position = down_collider_position
 		direction = 0
 	else:
 		if direction == 0:
 			queue_free()
 		else:
+			$AnimatedSprite2D.play("down_idle")
 			direction = 0
