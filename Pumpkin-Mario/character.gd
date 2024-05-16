@@ -11,6 +11,7 @@ var should_bounce: bool = false
 
 
 func _ready():
+	$AnimatedSprite2D.play("idle")
 	position = SPAWN_POSITION
 
 
@@ -39,7 +40,7 @@ func _physics_process(delta):
 	
 	if velocity.x>=0 : $AnimatedSprite2D.scale.x=1
 	else : $AnimatedSprite2D.scale.x=-1
-	if velocity.x==0 && is_on_floor() : $AnimatedSprite2D.play("idle")
+	if velocity.x<=0.01 && is_on_floor() : $AnimatedSprite2D.play("idle")
 	move_and_slide()
 
 

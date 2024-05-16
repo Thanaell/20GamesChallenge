@@ -13,10 +13,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_tilld")
+"texture": ExtResource("6_x6x5m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_g6hbu")
+"texture": ExtResource("7_4i2fv")
 }],
 "loop": true,
 "name": &"idle",
@@ -38,10 +38,10 @@ animations = [{
 "texture": ExtResource("5_bl76a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_x6x5m")
+"texture": ExtResource("1_tilld")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_4i2fv")
+"texture": ExtResource("2_g6hbu")
 }],
 "loop": true,
 "name": &"running",
@@ -61,7 +61,7 @@ script = ExtResource("1_fhjbv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d37ou")
-animation = &"jumping"
+animation = &"running"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
