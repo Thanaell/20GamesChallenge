@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://copvm7pv13n68"]
+
+[ext_resource type="Texture2D" uid="uid://0hk72g6wcljx" path="res://bullet.png" id="1_co748"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_hhvhf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44jdo"]
+radius = 8.0
+
+[node name="bullet" type="RigidBody2D"]
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_hhvhf")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_44jdo")
+
+[node name="area_of_effect" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-8, -30, -33, -13, -34, 18, 4, 36, 31, 19, 35, -7, 22, -24)
+
+[node name="bullet_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_co748")
+
+[connection signal="body_entered" from="." to="." method="on_collide"]

@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://fmssitdniymm"]
+[gd_scene load_steps=2 format=3 uid="uid://fmssitdniymm"]
 
-[node name="Terrain" type="Node2D"]
+[ext_resource type="Script" path="res://terrain.gd" id="1_em07p"]
+
+[node name="Terrain" type="StaticBody2D"]
+script = ExtResource("1_em07p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, 230, 176, 146, 330, 319, 336, 468, 522, 407, 623, 279, 771, 199, 927, 318, 988, 429, 1069, 257, 1153, 191, 1433, 782, -284, 786)
 
 [node name="Background" type="Polygon2D" parent="."]
 color = Color(0.588235, 0.713726, 0.776471, 1)
@@ -8,9 +14,4 @@ polygon = PackedVector2Array(0, 2, 1150, 0, 1155, 650, -5, 653)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.752941, 0.596078, 0.352941, 1)
-polygon = PackedVector2Array(-2, 226, 178, 144, 334, 320, 336, 467, 523, 404, 624, 275, 772, 198, 928, 320, 988, 428, 1069, 257, 1153, 190, 1156, 654, -14, 654)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-4, 230, 176, 146, 330, 319, 336, 468, 522, 407, 623, 279, 771, 199, 927, 318, 988, 429, 1069, 257, 1153, 191, 1155, 651, -14, 652)
+polygon = PackedVector2Array(-2, 226, 178, 144, 334, 320, 336, 467, 523, 404, 624, 275, 772, 198, 928, 320, 988, 428, 1069, 257, 1153, 190, 1435, 781, -284, 786)
